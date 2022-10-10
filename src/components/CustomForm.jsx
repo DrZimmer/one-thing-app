@@ -17,8 +17,9 @@ const Form = ({oneThing, handleInput, handleSubmit}) => {
           onInput={handleInput}
           />
           <button 
-            className='bg-inherit rounded-md font-sans text-slate-800 py-2 pr-6 focus:outline-none focus:text-teal-600 hover:text-teal-600'>
+            className='bg-inherit rounded-md font-sans text-slate-800 py-2 pr-6 focus:outline-none focus:text-teal-600 hover:text-teal-600 pointer-events-none' onclick={handleSubmit}>
             <ArrowCircleRightIcon className='h-12 w-12'/>
+            
           </button>
 
         </form>
