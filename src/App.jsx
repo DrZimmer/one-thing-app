@@ -1,33 +1,35 @@
+//react imports
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+
+//library imports
+
+
+//custom compenents
+import CustomerForm from './components/CustomForm'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [oneThing, setOneThing] = useState("")
+  const [isCompleted, setIsCompleted] = useState(true)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setIsCompleted(false)
+    console.log(e)
+  }
+
+  const handleInput = (e) => {
+    setOneThing(e.target.value)
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main className="grid place-items-center min-h-screen bg-grandient-to-b from-slate-100 to-slate-200">
+      <div className="grid place-items-center gap-8 m-8">
+        { isCompleted && <CustomerForm oneThing={oneThing}
+        handleInput={handleInput}
+        handleSubmit={handleSubmit}
+        />}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    </main>
   )
 }
 
